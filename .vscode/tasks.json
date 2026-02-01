@@ -56,10 +56,23 @@
       }
     },
     {
-      "label": "install",
+      "label": "install-node",
       "type": "shell",
-      "command": "npm",
-      "args": ["install"],
+      "command": "nvm",
+      "args": ["install", "24"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "use-node",
+      "type": "shell",
+      "command": "nvm",
+      "args": ["use", "24"],
       "group": "build",
       "presentation": {
         "echo": true,

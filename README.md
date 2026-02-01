@@ -24,19 +24,22 @@ npm install --save-dev jest @testing-library/react @testing-library/jest-dom @te
 ## Development
 
 ### Prerequisites
-- Node.js 24+
+- Node.js 24+ (install via NVM)
 - Docker and Docker Compose
 - PostgreSQL (or use Docker)
 
 ### Setup
-1. Clone the repository
-2. Install dependencies: Run the `install` task in VS Code or `npm install`
-3. Set up the database: Run `docker-compose up -d` to start PostgreSQL and Redis
-4. Run Prisma migrations: `npx prisma migrate dev`
-5. Start the development server: `npm run dev`
+1. Install NVM and Node.js: Run the `install-node` and `use-node` tasks in VS Code
+2. Clone the repository
+3. Install dependencies: Run the `install` task in VS Code or `npm install`
+4. Set up the database: Run `docker-compose up -d` to start PostgreSQL and Redis
+5. Run Prisma migrations: `npx prisma migrate dev`
+6. Start the development server: `npm run dev`
 
 ### VS Code Tasks
 Use the following tasks in VS Code (Ctrl+Shift+P > Tasks: Run Task):
+- `install-node`: Install Node.js 24 via NVM
+- `use-node`: Use Node.js 24 via NVM
 - `install`: Install npm dependencies
 - `dev`: Start the development server
 - `build`: Build the application
