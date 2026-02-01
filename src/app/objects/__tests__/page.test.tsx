@@ -1,13 +1,13 @@
 import { render, screen } from '@testing-library/react'
 
-import Page from '../page'
+import Objects from '../page'
 
-describe('Page', () => {
+describe('Objects', () => {
   it('renders a heading', () => {
-    render(<Page />)
+    render(<Objects />)
 
     const heading = screen.getByRole('heading', {
-      name: /bienvenue dans la bibliothèque d'objets/i,
+      name: /objects/i,
     })
 
     expect(heading).toBeInTheDocument()
