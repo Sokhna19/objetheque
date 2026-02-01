@@ -24,7 +24,7 @@ npm install --save-dev jest @testing-library/react @testing-library/jest-dom @te
 ## Development
 
 ### Prerequisites
-- Node.js 18+
+- Node.js 24+
 - Docker and Docker Compose
 - PostgreSQL (or use Docker)
 
