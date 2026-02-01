@@ -1,0 +1,69 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  password  String?
+  roles     UserRole[]
+  objects   Object[]
+  borrowings Borrowing[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Role {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  users     UserRole[]
+  createdAt DateTime @default(now())
+}
+
+model UserRole {
+  id     String @id @default(cuid())
+  userId String
+  roleId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role   Role   @relation(fields: [roleId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, roleId])
+}
+
+model Object {
+  id          String      @id @default(cuid())
+  name        String
+  description String?
+  category    String?
+  status      String      @default("available")
+  ownerId     String
+  owner       User        @relation(fields: [ownerId], references: [id])
+  borrowings  Borrowing[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
+
+model Borrowing {
+  id         String   @id @default(cuid())
+  userId     String
+  objectId   String
+  startDate  DateTime
+  endDate    DateTime?
+  status     String   @default("active")
+  user       User     @relation(fields: [userId], references: [id])
+  object     Object   @relation(fields: [objectId], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
