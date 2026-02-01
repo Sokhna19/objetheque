@@ -42,6 +42,7 @@ Use the following tasks in VS Code (Ctrl+Shift+P > Tasks: Run Task):
 - `use-node`: Use Node.js 24 via NVM
 - `install`: Install npm dependencies
 - `dev`: Start the development server
+- `open-browser`: Open the browser to http://localhost:3000
 - `build`: Build the application
 - `lint`: Run ESLint
 - `test`: Run tests

@@ -56,6 +56,19 @@
       }
     },
     {
+      "label": "install",
+      "type": "shell",
+      "command": "npm",
+      "args": ["install"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      }
+    },
+    {
       "label": "install-node",
       "type": "shell",
       "command": "nvm",
@@ -67,8 +80,19 @@
         "focus": false,
         "panel": "shared"
       }
-    },
-    {
+    },    {
+      "label": "open-browser",
+      "type": "shell",
+      "command": "start",
+      "args": ["http://localhost:3000"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      }
+    },    {
       "label": "use-node",
       "type": "shell",
       "command": "nvm",
