@@ -21,6 +21,28 @@ npx prisma generate
 npm install --save-dev jest @testing-library/react @testing-library/jest-dom @testing-library/user-event jest-environment-jsdom
 ```
 
+## Development
+
+### Prerequisites
+- Node.js 18+
+- Docker and Docker Compose
+- PostgreSQL (or use Docker)
+
+### Setup
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Set up the database: Run `docker-compose up -d` to start PostgreSQL and Redis
+4. Run Prisma migrations: `npx prisma migrate dev`
+5. Start the development server: `npm run dev`
+
+### VS Code Tasks
+Use the following tasks in VS Code (Ctrl+Shift+P > Tasks: Run Task):
+- `dev`: Start the development server
+- `build`: Build the application
+- `lint`: Run ESLint
+- `test`: Run tests
+- `docker-up`: Start Docker containers
+
 ## Future Enhancements
 - **Notifications**: Implement user notifications for object availability, due dates, and updates.
 - **Admin Features**: Develop a dashboard for administrators to manage users, objects, and generate reports.

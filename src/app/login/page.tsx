@@ -28,7 +28,7 @@ export default function Login() {
           </button>
         </form>
         <p className="mt-4 text-sm text-zinc-600 dark:text-zinc-400">
-          Don't have an account? <a href="/register" className="text-blue-500">Register</a>
+          Vous n&apos;avez pas de compte ? <a href="/register" className="text-blue-500">S&apos;inscrire</a>
         </p>
       </div>
     </div>

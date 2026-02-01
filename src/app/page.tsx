@@ -1,15 +1,13 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
       <main className="container mx-auto px-4 py-16 flex flex-col items-center justify-center min-h-screen">
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Bienvenue dans la Bibliothèque d'Objets
+            Bienvenue dans la Bibliothèque d&apos;Objets
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Gérez et réservez des objets partagés pour l'association. Découvrez une collection d'outils, d'équipements et de ressources disponibles pour tous les membres.
+            Gérez et réservez des objets partagés pour l&apos;association. Découvrez une collection d&apos;outils, d&apos;équipements et de ressources disponibles pour tous les membres.
           </p>
         </div>
         <div className="flex flex-col sm:flex-row gap-6">
@@ -30,7 +28,7 @@ export default function Home() {
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md text-center">
             <div className="text-4xl mb-4">🔧</div>
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Outils Disponibles</h3>
-            <p className="text-gray-600 dark:text-gray-300">Accédez à une variété d'outils pour vos projets.</p>
+            <p className="text-gray-600 dark:text-gray-300">Accédez à une variété d&apos;outils pour vos projets.</p>
           </div>
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md text-center">
             <div className="text-4xl mb-4">📅</div>
@@ -40,7 +38,7 @@ export default function Home() {
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md text-center">
             <div className="text-4xl mb-4">👥</div>
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Communauté</h3>
-            <p className="text-gray-600 dark:text-gray-300">Partagez des ressources avec les membres de l'association.</p>
+            <p className="text-gray-600 dark:text-gray-300">Partagez des ressources avec les membres de l&apos;association.</p>
           </div>
         </div>
       </main>
