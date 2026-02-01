@@ -30,13 +30,14 @@ npm install --save-dev jest @testing-library/react @testing-library/jest-dom @te
 
 ### Setup
 1. Clone the repository
-2. Install dependencies: `npm install`
+2. Install dependencies: Run the `install` task in VS Code or `npm install`
 3. Set up the database: Run `docker-compose up -d` to start PostgreSQL and Redis
 4. Run Prisma migrations: `npx prisma migrate dev`
 5. Start the development server: `npm run dev`
 
 ### VS Code Tasks
 Use the following tasks in VS Code (Ctrl+Shift+P > Tasks: Run Task):
+- `install`: Install npm dependencies
 - `dev`: Start the development server
 - `build`: Build the application
 - `lint`: Run ESLint

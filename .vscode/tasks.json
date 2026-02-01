@@ -56,10 +56,10 @@
       }
     },
     {
-      "label": "docker-up",
+      "label": "install",
       "type": "shell",
-      "command": "docker-compose",
-      "args": ["up", "-d"],
+      "command": "npm",
+      "args": ["install"],
       "group": "build",
       "presentation": {
         "echo": true,
@@ -67,6 +67,6 @@
         "focus": false,
         "panel": "shared"
       }
-    }
+    },
   ]
 }
