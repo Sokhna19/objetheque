@@ -66,7 +66,7 @@ Utilisez les tâches suivantes dans VS Code (Ctrl+Shift+P > Tasks: Run Task) :
 - `use-node` : Utiliser Node.js 24 via NVM
 - `install` : Installer les dépendances npm
 - `dev` : Démarrer le serveur de développement
-- `open-browser` : Ouvrir le navigateur sur http://localhost:3000
+- `open-browser` : Ouvrir le navigateur sur http://localhost:1502
 - `build` : Construire l'application
 - `lint` : Exécuter ESLint
 - `test` : Exécuter les tests

@@ -165,7 +165,7 @@
       "label": "[WINDOWS] open-browser",
       "type": "shell",
       "command": "start",
-      "args": ["http://localhost:3000"],
+      "args": ["http://localhost:1502"],
       "group": "build",
       "presentation": {
         "echo": true,
@@ -178,7 +178,7 @@
       "label": "[LINUX] open-browser",
       "type": "shell",
       "command": "xdg-open",
-      "args": ["http://localhost:3000"],
+      "args": ["http://localhost:1502"],
       "group": "build",
       "presentation": {
         "echo": true,
