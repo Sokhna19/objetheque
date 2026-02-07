@@ -1,0 +1,67 @@
+const { PrismaClient } = require('../src/generated/prisma');
+
+const prisma = new PrismaClient();
+
+async function main() {
+  // Create a sample user if not exists
+  const user = await prisma.user.upsert({
+    where: { email: 'test@example.com' },
+    update: {},
+    create: {
+      email: 'test@example.com',
+      name: 'Test User',
+      password: 'password', // In real app, hash it
+    },
+  });
+
+  // Sample objects with categories and subcategories
+  const objects = [
+    {
+      name: 'Échelle',
+      description: 'Une échelle pour atteindre les hauteurs',
+      category: 'Travaux / Bricolage',
+      subCategory: 'Echelles / Escabeaux',
+      status: 'available',
+      ownerId: user.id,
+    },
+    {
+      name: 'Boîte à outils',
+      description: 'Outils variés pour le bricolage',
+      category: 'Travaux / Bricolage',
+      subCategory: 'Outils manuels',
+      status: 'available',
+      ownerId: user.id,
+    },
+    {
+      name: 'Projecteur',
+      description: 'Pour projections',
+      category: 'Équipements électriques',
+      subCategory: 'Projecteurs',
+      status: 'available',
+      ownerId: user.id,
+    },
+    {
+      name: 'Ponceuse',
+      description: 'Pour poncer les surfaces',
+      category: 'Travaux / Bricolage',
+      subCategory: 'Ponceuses / Rabots / Défonceuses / Accessoires',
+      status: 'available',
+      ownerId: user.id,
+    },
+  ];
+
+  for (const obj of objects) {
+    await prisma.object.create({ data: obj });
+  }
+
+  console.log('Seed completed');
+}
+
+main()
+  .catch((e) => {
+    console.error(e);
+    process.exit(1);
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });

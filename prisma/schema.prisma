@@ -5,8 +5,7 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client"
-  output   = "../src/generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -47,6 +46,7 @@ model Object {
   name        String
   description String?
   category    String?
+  subCategory String?
   status      String      @default("available")
   ownerId     String
   owner       User        @relation(fields: [ownerId], references: [id])
