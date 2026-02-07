@@ -43,6 +43,7 @@ model UserRole {
 
 model Object {
   id          String      @id @default(cuid())
+  number      Int         @unique @default(autoincrement())
   name        String
   description String?
   category    String?
