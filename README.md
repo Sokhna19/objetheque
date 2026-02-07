@@ -4,6 +4,13 @@ Bibliothèque d'objet pour association
 ## Description
 Une application web pour gérer la bibliothèque d'objets d'une association, construite avec des technologies modernes.
 
+### Fonctionnalités principales
+- **Gestion des objets** : Chaque objet possède un numéro unique auto-incrémenté affiché entre parenthèses après le nom (ex: "Échelle en aluminium (1)").
+- **Catégorisation** : Organisation des objets par catégories et sous-catégories.
+- **Réservation** : Système de réservation d'objets disponibles.
+- **Authentification** : Connexion et inscription des utilisateurs.
+- **RBAC** : Contrôle d'accès basé sur les rôles pour sécuriser l'application.
+
 ## Pile Technologique
 - **Frontend** : Next.js, Tailwind CSS
 - **Authentification** : Auth.js
