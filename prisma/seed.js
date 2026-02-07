@@ -8,6 +8,13 @@ const adapter = new PrismaPg(pool);
 const prisma = new PrismaClient({ adapter });
 
 async function main() {
+  // Clear the database
+  await prisma.borrowing.deleteMany({});
+  await prisma.object.deleteMany({});
+  await prisma.userRole.deleteMany({});
+  await prisma.user.deleteMany({});
+  await prisma.role.deleteMany({});
+
   // Create a sample user if not exists
   const user = await prisma.user.upsert({
     where: { email: 'test@example.com' },
@@ -22,7 +29,7 @@ async function main() {
   // Sample objects with categories and subcategories
   const objects = [
     {
-      name: 'Échelle',
+      name: 'Échelle en aluminium',
       description: 'Une échelle pour atteindre les hauteurs',
       category: 'Travaux / Bricolage',
       subCategory: 'Echelles / Escabeaux',
