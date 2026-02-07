@@ -21,6 +21,7 @@ interface ObjectWithOwner {
   description: string | null;
   category: string | null;
   subCategory: string | null;
+  isToGive: boolean;
   status: string;
   owner: {
     id: string;
@@ -37,10 +38,24 @@ export default async function Objects({ searchParams }: ObjectsPageProps) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const where: any = {};
   if (category) {
-    if (Array.isArray(category)) {
-      where.category = { in: category };
+    if (Array.isArray(category) && category.includes("à donner")) {
+      const otherCategories = category.filter(c => c !== "à donner");
+      if (otherCategories.length > 0) {
+        where.OR = [
+          { category: { in: otherCategories } },
+          { isToGive: true }
+        ];
+      } else {
+        where.isToGive = true;
+      }
+    } else if (category === "à donner") {
+      where.isToGive = true;
     } else {
-      where.category = category;
+      if (Array.isArray(category)) {
+        where.category = { in: category };
+      } else {
+        where.category = category;
+      }
     }
   }
   if (subCategory) {
@@ -71,6 +86,12 @@ export default async function Objects({ searchParams }: ObjectsPageProps) {
 
   const categories = categoryCounts.map((c: { category: string | null; _count: { category: number } }) => ({ name: c.category, count: c._count.category })) as Category[];
 
+  // Add "à donner" category at the beginning
+  const toGiveCount = await prisma.object.count({
+    where: { isToGive: true },
+  });
+  categories.unshift({ name: "à donner", count: toGiveCount });
+
   // Group subcategories by category
   const subCategoriesByCategory: { [key: string]: SubCategory[] } = {};
   subCategoryCounts.forEach((c: { category: string | null; subCategory: string | null; _count: { subCategory: number } }) => {
@@ -89,14 +110,14 @@ export default async function Objects({ searchParams }: ObjectsPageProps) {
       <div className="flex">
         {/* Filters Sidebar */}
         <div className="w-64 pr-8">
-          <h2 className="text-lg font-medium mb-4">Filtres</h2>
+          <h2 className="text-lg font-medium mb-4">Filtre</h2>
           <form method="get" className="space-y-4">
             <div>
               <label className="block text-sm font-medium mb-2">Catégories et Sous-catégories</label>
               <div className="space-y-2">
                 {categories.map((cat: Category) => (
                   <div key={cat.name}>
-                    <label className="flex items-center font-medium">
+                    <label className={`flex items-center ${cat.name === "à donner" ? "font-bold text-green-600" : "font-medium"}`}>
                       <input
                         type="checkbox"
                         name="category"
@@ -133,8 +154,13 @@ export default async function Objects({ searchParams }: ObjectsPageProps) {
         <div className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {objects.map((obj: ObjectWithOwner) => (
             <div key={obj.id} className="bg-white dark:bg-zinc-800 p-4 rounded shadow">
-              <div className="w-full h-32 bg-gray-200 dark:bg-gray-700 rounded mb-4 flex items-center justify-center">
+              <div className="w-full h-32 bg-gray-200 dark:bg-gray-700 rounded mb-4 flex items-center justify-center relative">
                 <span className="text-gray-500">Photo à venir</span>
+                {obj.isToGive && (
+                  <div className="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded text-sm font-bold">
+                    À donner
+                  </div>
+                )}
               </div>
               <h2 className="text-xl font-medium">{obj.name} ({obj.number})</h2>
               <p>{obj.description}</p>

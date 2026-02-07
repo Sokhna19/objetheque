@@ -48,6 +48,7 @@ model Object {
   description String?
   category    String?
   subCategory String?
+  isToGive    Boolean     @default(false)
   status      String      @default("available")
   ownerId     String
   owner       User        @relation(fields: [ownerId], references: [id])
