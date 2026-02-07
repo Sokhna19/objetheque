@@ -1,227 +1,292 @@
 {
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "label": "[WINDOWS] dev",
-      "type": "shell",
-      "command": "npm",
-      "args": ["run", "dev"],
-      "group": "build",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "shared"
-      },
-      "isBackground": true,
-      "options": {
-        "env": {
-          "PORT": "1502"
-        }
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "[LINUX] dev",
-      "type": "shell",
-      "command": "npm",
-      "args": ["run", "dev"],
-      "group": "build",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "shared"
-      },
-      "isBackground": true,
-      "options": {
-        "env": {
-          "PORT": "1502"
-        }
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "[WINDOWS] build",
-      "type": "shell",
-      "command": "npm",
-      "args": ["run", "build"],
-      "group": "build",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "shared"
-      }
-    },
-    {
-      "label": "[LINUX] build",
-      "type": "shell",
-      "command": "npm",
-      "args": ["run", "build"],
-      "group": "build",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "shared"
-      }
-    },
-    {
-      "label": "[WINDOWS] lint",
-      "type": "shell",
-      "command": "npm",
-      "args": ["run", "lint"],
-      "group": "test",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "shared"
-      }
-    },
-    {
-      "label": "[LINUX] lint",
-      "type": "shell",
-      "command": "npm",
-      "args": ["run", "lint"],
-      "group": "test",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "shared"
-      }
-    },
-    {
-      "label": "[WINDOWS] test",
-      "type": "shell",
-      "command": "npm",
-      "args": ["run", "test"],
-      "group": "test",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "shared"
-      }
-    },
-    {
-      "label": "[LINUX] test",
-      "type": "shell",
-      "command": "npm",
-      "args": ["run", "test"],
-      "group": "test",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "shared"
-      }
-    },
-    {
-      "label": "[WINDOWS] install",
-      "type": "shell",
-      "command": "npm",
-      "args": ["install"],
-      "group": "build",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "shared"
-      }
-    },
-    {
-      "label": "[LINUX] install",
-      "type": "shell",
-      "command": "npm",
-      "args": ["install"],
-      "group": "build",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "shared"
-      }
-    },
-    {
-      "label": "[WINDOWS] install-node",
-      "type": "shell",
-      "command": "nvm",
-      "args": ["install", "24"],
-      "group": "build",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "shared"
-      }
-    },
-    {
-      "label": "[LINUX] install-node",
-      "type": "shell",
-      "command": "nvm",
-      "args": ["install", "24"],
-      "group": "build",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "shared"
-      }
-    },
-    {
-      "label": "[WINDOWS] open-browser",
-      "type": "shell",
-      "command": "start",
-      "args": ["http://localhost:1502"],
-      "group": "build",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "shared"
-      }
-    },
-    {
-      "label": "[LINUX] open-browser",
-      "type": "shell",
-      "command": "xdg-open",
-      "args": ["http://localhost:1502"],
-      "group": "build",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "shared"
-      }
-    },
-    {
-      "label": "[WINDOWS] use-node",
-      "type": "shell",
-      "command": "nvm",
-      "args": ["use", "24"],
-      "group": "build",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "shared"
-      }
-    },
-    {
-      "label": "[LINUX] use-node",
-      "type": "shell",
-      "command": "nvm",
-      "args": ["use", "24"],
-      "group": "build",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "shared"
-      }
-    }
-  ]
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "[WINDOWS] dev",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"dev"
+			],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			},
+			"isBackground": true,
+			"options": {
+				"env": {
+					"PORT": "1502"
+				}
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "[LINUX] dev",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"dev"
+			],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			},
+			"isBackground": true,
+			"options": {
+				"env": {
+					"PORT": "1502"
+				}
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "[WINDOWS] build",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"build"
+			],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "[LINUX] build",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"build"
+			],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "[WINDOWS] lint",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"lint"
+			],
+			"group": "test",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "[LINUX] lint",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"lint"
+			],
+			"group": "test",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "[WINDOWS] test",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"test"
+			],
+			"group": "test",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "[LINUX] test",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"test"
+			],
+			"group": "test",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "[WINDOWS] install",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"install"
+			],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "[LINUX] install",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"install"
+			],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "[WINDOWS] install-node",
+			"type": "shell",
+			"command": "nvm",
+			"args": [
+				"install",
+				"24"
+			],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "[LINUX] install-node",
+			"type": "shell",
+			"command": "nvm",
+			"args": [
+				"install",
+				"24"
+			],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "[WINDOWS] open-browser",
+			"type": "shell",
+			"command": "start",
+			"args": [
+				"http://localhost:1502"
+			],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "[LINUX] open-browser",
+			"type": "shell",
+			"command": "xdg-open",
+			"args": [
+				"http://localhost:1502"
+			],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "[WINDOWS] use-node",
+			"type": "shell",
+			"command": "nvm",
+			"args": [
+				"use",
+				"24"
+			],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "[LINUX] use-node",
+			"type": "shell",
+			"command": "nvm",
+			"args": [
+				"use",
+				"24"
+			],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "seed",
+			"type": "shell",
+			"command": "npx prisma",
+			"args": [
+				"db",
+				"seed"
+			],
+			"group": "build"
+		},
+		{
+			"label": "seed",
+			"type": "shell",
+			"command": "npx",
+			"args": [
+				"prisma",
+				"db",
+				"seed"
+			],
+			"group": "build"
+		}
+	]
 }
