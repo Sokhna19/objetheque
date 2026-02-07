@@ -130,9 +130,9 @@ export default async function Objects({ searchParams }: ObjectsPageProps) {
         </div>
         {/* Objects Grid */}
         <div className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {objects.map((obj: ObjectWithOwner, index: number) => (
+          {objects.map((obj: ObjectWithOwner) => (
             <div key={obj.id} className="bg-white dark:bg-zinc-800 p-4 rounded shadow">
-              <h2 className="text-xl font-medium">{obj.name} ({index + 1})</h2>
+              <h2 className="text-xl font-medium">{obj.name}</h2>
               <p>{obj.description}</p>
               <p>Catégorie: {obj.category}</p>
               <p>Sous-catégorie: {obj.subCategory}</p>
