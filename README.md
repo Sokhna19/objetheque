@@ -6,7 +6,8 @@ Une application web pour gérer la bibliothèque d'objets d'une association, con
 
 ### Fonctionnalités principales
 - **Gestion des objets** : Chaque objet possède un numéro unique auto-incrémenté affiché entre parenthèses après le nom (ex: "Échelle en aluminium (1)").
-- **Catégorisation** : Organisation des objets par catégories et sous-catégories.
+- **Affichage des objets** : Cartes d'objets avec espace réservé pour photo, nom avec numéro, description et statut. Les catégories et sous-catégories sont affichées dans les filtres latéraux pour éviter la répétition.
+- **Catégorisation** : Organisation des objets par catégories et sous-catégories via des filtres.
 - **Réservation** : Système de réservation d'objets disponibles.
 - **Authentification** : Connexion et inscription des utilisateurs.
 - **RBAC** : Contrôle d'accès basé sur les rôles pour sécuriser l'application.

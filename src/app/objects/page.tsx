@@ -133,10 +133,11 @@ export default async function Objects({ searchParams }: ObjectsPageProps) {
         <div className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {objects.map((obj: ObjectWithOwner) => (
             <div key={obj.id} className="bg-white dark:bg-zinc-800 p-4 rounded shadow">
+              <div className="w-full h-32 bg-gray-200 dark:bg-gray-700 rounded mb-4 flex items-center justify-center">
+                <span className="text-gray-500">Photo à venir</span>
+              </div>
               <h2 className="text-xl font-medium">{obj.name} ({obj.number})</h2>
               <p>{obj.description}</p>
-              <p>Catégorie: {obj.category}</p>
-              <p>Sous-catégorie: {obj.subCategory}</p>
               <p>Status: {obj.status}</p>
               <button className={`mt-2 px-4 py-2 rounded ${obj.status === 'available' ? 'bg-blue-500 text-white' : 'bg-gray-500 text-white'}`} disabled={obj.status !== 'available'}>
                 {obj.status === 'available' ? 'Reserve' : 'Unavailable'}
