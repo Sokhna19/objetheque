@@ -1,6 +1,9 @@
 import { prisma } from '@/lib/prisma';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import AvailabilityCalendar from '@/components/Calendar';
+import BorrowForm from '@/components/BorrowForm';
+import { createBorrowing } from '@/actions';
 
 interface ObjectDetailPageProps {
   params: Promise<{ id: string }>;
@@ -55,6 +58,18 @@ export default async function ObjectDetail({ params }: ObjectDetailPageProps) {
     notFound();
   }
 
+  // Compute booked dates for calendar
+  const bookedDates: Date[] = [];
+  for (const borrowing of object.borrowings) {
+    if (borrowing.status === 'active') {
+      const start = new Date(borrowing.startDate);
+      const end = borrowing.endDate ? new Date(borrowing.endDate) : new Date(Date.now() + 365 * 24 * 60 * 60 * 1000); // 1 year from now if ongoing
+      for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+        bookedDates.push(new Date(d));
+      }
+    }
+  }
+
   // TODO: Implement role-based access control
   // For now, show all info; later hide sensitive data for non-volunteers
   const isVolunteer = true; // Placeholder: set to true to show volunteer view
@@ -100,6 +115,9 @@ export default async function ObjectDetail({ params }: ObjectDetailPageProps) {
             <span className="text-gray-500">Photo à venir</span>
           </div>
 
+          {/* Availability Calendar */}
+          {!object.isRequestedMissing && <AvailabilityCalendar bookedDates={bookedDates} />}
+
           {/* Description */}
           {object.description && (
             <div className="mb-6">
@@ -124,13 +142,9 @@ export default async function ObjectDetail({ params }: ObjectDetailPageProps) {
             </div>
           )}
 
-          {/* Reserve Button */}
+          {/* Borrow Form */}
           {object.status === 'available' && (
-            <div className="mb-6">
-              <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-                Réserver
-              </button>
-            </div>
+            <BorrowForm objectId={object.id} />
           )}
 
           {/* Borrowing History */}

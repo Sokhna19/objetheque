@@ -26,6 +26,17 @@ async function main() {
     },
   });
 
+  // Create Christelle user
+  const christelle = await prisma.user.upsert({
+    where: { email: 'christelle@example.com' },
+    update: {},
+    create: {
+      email: 'christelle@example.com',
+      name: 'Christelle',
+      password: 'password',
+    },
+  });
+
   // Sample objects with categories and subcategories
   const objects = [
     {
@@ -215,6 +226,27 @@ async function main() {
 
   for (const obj of objects) {
     await prisma.object.create({ data: obj });
+  }
+
+  // Create borrowing for Pince multiprise to Christelle
+  const pince = await prisma.object.findFirst({ where: { name: 'Pince multiprise' } });
+  if (pince && christelle) {
+    const startDate = new Date();
+    const endDate = new Date();
+    endDate.setDate(endDate.getDate() + 4);
+    await prisma.borrowing.create({
+      data: {
+        userId: christelle.id,
+        objectId: pince.id,
+        startDate,
+        endDate,
+        status: 'active',
+      }
+    });
+    await prisma.object.update({
+      where: { id: pince.id },
+      data: { status: 'borrowed' }
+    });
   }
 
   console.log('Seed completed');

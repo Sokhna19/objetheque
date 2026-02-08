@@ -2,6 +2,19 @@ import { render, screen } from '@testing-library/react'
 
 import ObjectDetail from '../page'
 
+// Mock components
+jest.mock('@/components/Calendar', () => {
+  return function MockCalendar() {
+    return <div>Mock Calendar</div>;
+  };
+});
+
+jest.mock('@/components/BorrowForm', () => {
+  return function MockBorrowForm({ objectId }: { objectId: string }) {
+    return <div>Mock Borrow Form for {objectId}</div>;
+  };
+});
+
 // Mock prisma
 jest.mock('@/lib/prisma', () => ({
   prisma: {
