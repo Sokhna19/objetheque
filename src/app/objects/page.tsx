@@ -16,12 +16,13 @@ interface SubCategory {
 
 interface ObjectWithOwner {
   id: string;
-  number: number;
+  number: number | null;
   name: string;
   description: string | null;
   category: string | null;
   subCategory: string | null;
   isToGive: boolean;
+  isRequestedMissing: boolean;
   status: string;
   owner: {
     id: string;
@@ -50,6 +51,18 @@ export default async function Objects({ searchParams }: ObjectsPageProps) {
       }
     } else if (category === "à donner") {
       where.isToGive = true;
+    } else if (Array.isArray(category) && category.includes("objets manquants et demandés")) {
+      const otherCategories = category.filter(c => c !== "objets manquants et demandés");
+      if (otherCategories.length > 0) {
+        where.OR = [
+          { category: { in: otherCategories } },
+          { isRequestedMissing: true }
+        ];
+      } else {
+        where.isRequestedMissing = true;
+      }
+    } else if (category === "objets manquants et demandés") {
+      where.isRequestedMissing = true;
     } else {
       if (Array.isArray(category)) {
         where.category = { in: category };
@@ -92,6 +105,12 @@ export default async function Objects({ searchParams }: ObjectsPageProps) {
   });
   categories.unshift({ name: "à donner", count: toGiveCount });
 
+  // Add "objets manquants et demandés" category second
+  const requestedMissingCount = await prisma.object.count({
+    where: { isRequestedMissing: true },
+  });
+  categories.splice(1, 0, { name: "objets manquants et demandés", count: requestedMissingCount });
+
   // Group subcategories by category
   const subCategoriesByCategory: { [key: string]: SubCategory[] } = {};
   subCategoryCounts.forEach((c: { category: string | null; subCategory: string | null; _count: { subCategory: number } }) => {
@@ -117,7 +136,7 @@ export default async function Objects({ searchParams }: ObjectsPageProps) {
               <div className="space-y-2">
                 {categories.map((cat: Category) => (
                   <div key={cat.name}>
-                    <label className={`flex items-center ${cat.name === "à donner" ? "font-bold text-green-600" : "font-medium"}`}>
+                    <label className={`flex items-center ${cat.name === "à donner" ? "font-bold text-green-600" : cat.name === "objets manquants et demandés" ? "font-bold text-red-600" : "font-medium"}`}>
                       <input
                         type="checkbox"
                         name="category"
@@ -161,8 +180,13 @@ export default async function Objects({ searchParams }: ObjectsPageProps) {
                     À donner
                   </div>
                 )}
+                {obj.isRequestedMissing && (
+                  <div className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded text-sm font-bold">
+                    Objet recherché
+                  </div>
+                )}
               </div>
-              <h2 className="text-xl font-medium">{obj.name} ({obj.number})</h2>
+              <h2 className="text-xl font-medium">{obj.name}{obj.number ? ` (${obj.number})` : ''}</h2>
               <p>{obj.description}</p>
               <p>Status: {obj.status}</p>
               <button className={`mt-2 px-4 py-2 rounded ${obj.status === 'available' ? 'bg-blue-500 text-white' : 'bg-gray-500 text-white'}`} disabled={obj.status !== 'available'}>

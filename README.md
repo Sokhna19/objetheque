@@ -5,9 +5,9 @@ Bibliothèque d'objet pour association
 Une application web pour gérer la bibliothèque d'objets d'une association, construite avec des technologies modernes.
 
 ### Fonctionnalités principales
-- **Gestion des objets** : Chaque objet possède un numéro unique auto-incrémenté affiché entre parenthèses après le nom (ex: "Échelle en aluminium (1)").
-- **Affichage des objets** : Cartes d'objets avec espace réservé pour photo, nom avec numéro, description et statut. Les catégories et sous-catégories sont affichées dans les filtres latéraux pour éviter la répétition.
-- **Catégorisation** : Organisation des objets par catégories et sous-catégories via des filtres.
+- **Gestion des objets** : Chaque objet peut avoir un numéro optionnel affiché entre parenthèses après le nom si présent (ex: "Échelle en aluminium (1)" ou "Marteau"). Les objets "objets manquants et demandés" sont marqués en rouge et positionnés en deuxième dans les filtres, avec un badge rouge "Objet recherché" sur la carte. Ils ne peuvent pas être combinés avec "à donner" via la logique applicative.
+- **Affichage des objets** : Cartes d'objets avec espace réservé pour photo, nom avec numéro conditionnel, description et statut. Les catégories et sous-catégories sont affichées dans les filtres latéraux pour éviter la répétition.
+- **Catégorisation** : Organisation des objets par catégories et sous-catégories via des filtres, incluant "objets manquants et demandés" en rouge.
 - **Réservation** : Système de réservation d'objets disponibles.
 - **Authentification** : Connexion et inscription des utilisateurs.
 - **RBAC** : Contrôle d'accès basé sur les rôles pour sécuriser l'application.
@@ -94,3 +94,7 @@ Utilisez les tâches suivantes dans VS Code (Ctrl+Shift+P > Tasks: Run Task) :
 6. Mettre à jour README.md avec les choix technologiques actuels et les améliorations futures.
 7. Développer les fonctionnalités principales de gestion des objets.
 8. Implémenter les améliorations futures (notifications, fonctionnalités admin, surveillance).
+
+## Chat IA de VSCode
+1. ouvrir avec CTRL+MAJ+I
+

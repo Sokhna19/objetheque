@@ -43,12 +43,13 @@ model UserRole {
 
 model Object {
   id          String      @id @default(cuid())
-  number      Int         @unique @default(autoincrement())
+  number      Int?
   name        String
   description String?
   category    String?
   subCategory String?
   isToGive    Boolean     @default(false)
+  isRequestedMissing Boolean @default(false)
   status      String      @default("available")
   ownerId     String
   owner       User        @relation(fields: [ownerId], references: [id])
