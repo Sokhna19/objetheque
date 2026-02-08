@@ -21,7 +21,7 @@ async function main() {
     update: {},
     create: {
       email: 'test@example.com',
-      name: 'Test User',
+      name: 'Ker Logettes',
       password: 'password', // In real app, hash it
     },
   });
@@ -33,6 +33,7 @@ async function main() {
       description: 'Une échelle pour atteindre les hauteurs',
       category: 'Travaux / Bricolage',
       subCategory: 'Echelles / Escabeaux',
+      shelf: 'A',
       isToGive: true,
       status: 'available',
       ownerId: user.id,

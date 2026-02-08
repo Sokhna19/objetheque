@@ -1,4 +1,5 @@
 import { prisma } from '@/lib/prisma';
+import Link from 'next/link';
 
 interface ObjectsPageProps {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
@@ -172,7 +173,7 @@ export default async function Objects({ searchParams }: ObjectsPageProps) {
         {/* Objects Grid */}
         <div className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {objects.map((obj: ObjectWithOwner) => (
-            <div key={obj.id} className="bg-white dark:bg-zinc-800 p-4 rounded shadow">
+            <Link key={obj.id} href={`/objects/${obj.id}`} className="bg-white dark:bg-zinc-800 p-4 rounded shadow block hover:shadow-lg transition-shadow">
               <div className="w-full h-32 bg-gray-200 dark:bg-gray-700 rounded mb-4 flex items-center justify-center relative">
                 <span className="text-gray-500">Photo à venir</span>
                 {obj.isToGive && (
@@ -189,10 +190,7 @@ export default async function Objects({ searchParams }: ObjectsPageProps) {
               <h2 className="text-xl font-medium">{obj.name}{obj.number ? ` (${obj.number})` : ''}</h2>
               <p>{obj.description}</p>
               <p>Status: {obj.status}</p>
-              <button className={`mt-2 px-4 py-2 rounded ${obj.status === 'available' ? 'bg-blue-500 text-white' : 'bg-gray-500 text-white'}`} disabled={obj.status !== 'available'}>
-                {obj.status === 'available' ? 'Reserve' : 'Unavailable'}
-              </button>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

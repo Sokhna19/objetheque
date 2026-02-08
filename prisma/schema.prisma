@@ -48,6 +48,7 @@ model Object {
   description String?
   category    String?
   subCategory String?
+  shelf       String?
   isToGive    Boolean     @default(false)
   isRequestedMissing Boolean @default(false)
   status      String      @default("available")
