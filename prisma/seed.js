@@ -27,6 +27,7 @@ async function main() {
   });
 
   // Sample objects with categories and subcategories
+  let objectNumber = 1;
   const objects = [
     {
       name: 'Échelle en aluminium',
@@ -37,6 +38,7 @@ async function main() {
       isToGive: true,
       status: 'available',
       ownerId: user.id,
+      number: objectNumber++,
     },
     {
       name: 'Échelle télescopique',
@@ -46,6 +48,7 @@ async function main() {
       isToGive: false,
       status: 'available',
       ownerId: user.id,
+      number: objectNumber++,
     },
     {
       name: 'Escabeau pliant',
@@ -55,6 +58,7 @@ async function main() {
       isToGive: true,
       status: 'available',
       ownerId: user.id,
+      number: objectNumber++,
     },
     {
       name: 'Échelle double',
@@ -64,6 +68,7 @@ async function main() {
       isToGive: false,
       status: 'available',
       ownerId: user.id,
+      number: objectNumber++,
     },
     {
       name: 'Boîte à outils',
@@ -73,6 +78,7 @@ async function main() {
       isToGive: true,
       status: 'available',
       ownerId: user.id,
+      number: objectNumber++,
     },
     {
       name: 'Marteau',
@@ -82,6 +88,7 @@ async function main() {
       isToGive: false,
       status: 'available',
       ownerId: user.id,
+      number: objectNumber++,
     },
     {
       name: 'Tournevis électrique',
@@ -91,6 +98,7 @@ async function main() {
       isToGive: true,
       status: 'available',
       ownerId: user.id,
+      number: objectNumber++,
     },
     {
       name: 'Clé à pipe',
@@ -100,6 +108,7 @@ async function main() {
       isToGive: false,
       status: 'available',
       ownerId: user.id,
+      number: objectNumber++,
     },
     {
       name: 'Pince multiprise',
@@ -109,6 +118,7 @@ async function main() {
       isToGive: true,
       status: 'available',
       ownerId: user.id,
+      number: objectNumber++,
     },
     {
       name: 'Projecteur',
@@ -117,6 +127,7 @@ async function main() {
       subCategory: 'Projecteurs',
       status: 'available',
       ownerId: user.id,
+      number: objectNumber++,
     },
     {
       name: 'Projecteur LED',
@@ -125,6 +136,7 @@ async function main() {
       subCategory: 'Projecteurs',
       status: 'available',
       ownerId: user.id,
+      number: objectNumber++,
     },
     {
       name: 'Lampe de chantier',
@@ -133,6 +145,7 @@ async function main() {
       subCategory: 'Projecteurs',
       status: 'available',
       ownerId: user.id,
+      number: objectNumber++,
     },
     {
       name: 'Ponceuse',
@@ -141,6 +154,7 @@ async function main() {
       subCategory: 'Ponceuses / Rabots / Défonceuses / Accessoires',
       status: 'available',
       ownerId: user.id,
+      number: objectNumber++,
     },
     {
       name: 'Rabot électrique',
@@ -149,6 +163,7 @@ async function main() {
       subCategory: 'Ponceuses / Rabots / Défonceuses / Accessoires',
       status: 'available',
       ownerId: user.id,
+      number: objectNumber++,
     },
     {
       name: 'Défonceuse',
@@ -157,6 +172,7 @@ async function main() {
       subCategory: 'Ponceuses / Rabots / Défonceuses / Accessoires',
       status: 'available',
       ownerId: user.id,
+      number: objectNumber++,
     },
     {
       name: 'Accessoires de ponceuse',
@@ -165,6 +181,7 @@ async function main() {
       subCategory: 'Ponceuses / Rabots / Défonceuses / Accessoires',
       status: 'available',
       ownerId: user.id,
+      number: objectNumber++,
     },
     {
       name: 'Marteau',

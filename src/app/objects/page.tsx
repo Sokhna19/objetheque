@@ -127,6 +127,11 @@ export default async function Objects({ searchParams }: ObjectsPageProps) {
     <div className="min-h-screen bg-zinc-50 dark:bg-black p-8">
       <h1 className="text-3xl font-semibold text-black dark:text-zinc-50 mb-6">Objects</h1>
       <p className="text-zinc-600 dark:text-zinc-400 mb-4">Browse available objects for reservation.</p>
+      <div className="mb-6">
+        <Link href="/objects/new" className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
+          Ajouter un nouvel objet
+        </Link>
+      </div>
       <div className="flex">
         {/* Filters Sidebar */}
         <div className="w-64 pr-8">
